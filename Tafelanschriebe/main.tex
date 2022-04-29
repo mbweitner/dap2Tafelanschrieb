@@ -1,0 +1,56 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ngerman]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Hier wird das Seitenlayout festgelegt %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[
+  %showframe,% Seitenlayout anzeigen
+  left=2cm,
+  right=2cm,
+  top=3cm,
+  bottom=3cm,
+]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Mit dem folgenden Paket/Befehl wir die Matheumgebung "align*"%%%%%%%%%%
+%%%%%%%%%%%automatisch auf der nächsten Seite fortgesetzt, wenn diese länger%%%%%%
+%%%%%%%%%%%als die aktuelle Seite geht%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{autobreak}
+\allowdisplaybreaks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Hier werden nützliche Zusatzpakete importiert %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{packages}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Suchst du bestimmte Symbole schau unter diesem link: %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%"https://detexify.kirelabs.org/classify.html" %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{commands}
+\begin{document}
+\tableofcontents
+\newpage
+\section{Tafelanschrieb 12.04.2022}
+\input{2022.04.12/2022.04.12}
+\newpage
+\section{Tafelanschrieb 14.04.2022}
+\input{2022.04.14/2022.04.14}
+\section{Tafelanschrieb 19.04.2022}
+\input{2022.04.19/2022.04.19}
+\section{Tafelanschrieb 21.04.2022}
+\input{2022.04.21/2022.04.21}
+\newpage
+\section{Tafelanschrieb 26.04.2022}
+\input{2022.04.26/2022.04.26}
+\newpage
+\section{Tafelanschrieb 28.04.2022}
+\input{2022.04.28/2022.04.28}
+\end{document}

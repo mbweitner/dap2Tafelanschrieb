@@ -1,0 +1,80 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Mathematische Ausdrücke   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%Integrale
+%Integral von 0 bis pi/2
+\newcommand{\intpihalbe}{\int_{0}^{\frac{\pi}{2}}}
+\newcommand{\intnullbisn}{\int_{0}^{n}}
+\newcommand{\inteinsbisn}{\int_{1}^{n}}
+
+%%%Summen
+\newcommand{\summeeinsbisn}{\sum_{i = 1}^{n}}
+\newcommand{\summeeinsbisnpluseins}{\sum_{i = 1}^{n+1}}
+\newcommand{\summenullbisn}{\sum_{i = 0}^{n}}
+\newcommand{\summenullbisnpluseins}{\sum_{i = 0}^{n+1}}
+
+%%%Produkte
+\newcommand{\produkteinsbisn}{\Pi_{i=1}^{n}}
+\newcommand{\produkteinsbisnpluseins}{\Pi_{i=1}^{n+1}}
+\newcommand{\produktnullbisn}{\Pi_{i=0}^{n}}
+\newcommand{\produktnullbisnpluseins}{\Pi_{i=0}^{n+1}}
+
+%%%Limes
+\newcommand{\limesngegenunendlich}{\lim_{n \rightarrow \infty}}
+\newcommand{\limesngegenminusunendlich}{\lim_{n \rightarrow - \infty}}
+\newcommand{\limesxgegenunendlich}{\lim_{x \rightarrow \infty}}
+\newcommand{\limesxgegenminusunendlich}{\lim_{x \rightarrow - \infty}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Umrandungen um Matheausdruecke   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Schwarzer Kasten um Ausdruck => Es muss $formel$ angegeben werden
+\newcommand*{\rectangled}[1]{\tikz[baseline=(char.base)]{
+\node[shape=rectangle,draw,inner sep=2pt] (char){#1};}}
+%Roter Kasten um Ausdruck => Es muss $formel$ angegeben werden
+\newcommand*{\redrectangled}[1]{\tikz[baseline=(char.base)]{
+\node[shape=rectangle,draw,inner sep=2pt, red] (char) {\textcolor{black}{#1}};}}
+%Schwarzer Kreis um Ausdruck => Es muss $formel$ angegeben werden
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+\node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+%Roter Kreis um Ausdruck => Es muss $formel$ angegeben werden
+\newcommand*\redcircled[1]{\tikz[baseline=(char.base)]{
+\node[shape=circle,draw,inner sep=1pt] (char) {\textcolor{red}{#1}};}}
+
+
+%%%%%%%%%%%%%%%%%%
+%   Strukturen   %
+%%%%%%%%%%%%%%%%%%
+%Erzeugt einen beispielhaften Binärbaum
+\newcommand{\beispielBaum}{
+    \node(root) at (0,0)  [draw, circle, inner sep=4]  {$0$};
+    \node(1) at (-4,-1)   [draw, circle, inner sep=4]  {$1$};
+    \node(2) at (4,-1)    [draw, circle, inner sep=4]  {$2$};
+    %Knoten unter 1
+    \node(11) at (-6,-2)  [draw, circle, inner sep=4]  {$4$};
+    \node(12) at (-2,-2)  [draw, circle, inner sep=4]  {$5$};
+    %Knoten unter 2
+    \node(21) at (2,-2)   [draw, circle, inner sep=4]  {$6$};
+    \node(22) at (6,-2)   [draw, circle, inner sep=4]  {$7$};
+    %Kanten
+    %root
+    \draw[-] (1) to (0);
+    \draw[-] (2) to (0);
+    %Kanten nach 1
+    \draw[-] (11) to (1);
+    \draw[-] (12) to (1);
+    %Kanten nach 2
+    \draw[-] (21) to (2);
+    \draw[-] (22) to (2);
+}
+
+%Erzeugt eine Liste liste{anzahlElemente}{Element1 & Element2 & ...}
+\newcommand{\liste}[2]{
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{*#1{|c}|}
+    \hline
+    #2\\\hline
+\end{tabular}}
+}

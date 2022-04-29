@@ -1,0 +1,139 @@
+\subsection{Stirlingformel}
+$\Omega(\log n!)$\\
+
+\begin{align*}
+    &n! \sim \sqrt{2\pi n}(\frac{n}{e})^n &&\text{Stirling Formel}\\
+    &\Rightarrow \log n! \sim \log(\sqrt{2\pi n}(\frac{n}{e})^n) && \log (x + y) = \log x + \log y\\
+    &= \underbrace{\frac{1}{2}\log(2\pi)}_{O(1)} + \underbrace{\log n}_{O(\log n)} + n \log n \underbrace{- n}_{O(n)} && \log 1 = 0\\
+    &\sim n \log n
+\end{align*}
+
+
+\subsection{Herleitung vom Wallisschen Produkt}
+\underline{\textbf{Beweis:}} Übungen
+\renewcommand{\intpihalbe}{\int_{0}^{\frac{\pi}{2}}}
+\begin{align*}
+    &\int_{0}^{\frac{\pi}{2}} \sin^{n} x\ dx = \frac{n-1}{n} \int_{0}^{\frac{\pi}{2}} \sin^{n -2} x \ dx && (n \geq 2)\\
+    &\intpihalbe \sin^{2n} x \ dx = \left[\Pi_{i=1}^{n} \frac{2i -1}{2i}\right] \cdot \frac{\pi}{2}\\
+    &\intpihalbe \sin^{2n+1} x \ dx = \left[\Pi_{i=1}^{n} \frac{2i -1}{2i}\right] \underbrace{\intpihalbe \sin x \ dx}_{1} = \Pi_{i=1}^{n} \frac{2i -1}{2i}
+\end{align*}
+\begin{align*}
+    &1 \geq \frac{\intpihalbe \sin^{2n+1} x \ dx}{\intpihalbe \sin^{2n} x \ dx} \text{ weil } \sin^{2n+1} x \leq \sin^{2n} x \ \forall x, n \text{ da } \sin x \in [0, 1] \text{ für } x \in [0, \frac{\pi}{2}]\\
+    &\geq \frac{\intpihalbe \sin^{2n+2} x \ dx}{\intpihalbe \sin^{2n} x \ dx} = \frac{\frac{\pi}{2} \cdot \Pi_{i = 1}^{n+1} \frac{2i-1}{2i}}{\frac{\pi}{2} \cdot \Pi_{i = 1}^{n} \frac{2i-1}{2i}} = \frac{2n +1}{2n+2} \underset{n \rightarrow \infty}{\longrightarrow} 1\\
+    &\Rightarrow \lim_{n \rightarrow \infty} \frac{\intpihalbe \sin^{2n+1} x \ dx}{\intpihalbe \sin^{2n} x \ dx} = 1\\
+    &\Rightarrow 1 = \lim_{n \rightarrow \infty} \frac{\Pi_{i = 1}^{n} \frac{2}{2i+1}}{\frac{\pi}{2} \Pi_{i = 1}^{n} \frac{2i-1}{2i}} = \frac{2}{\pi} \lim_{n \rightarrow \infty} \Pi_{i = 1}^{n} \frac{4i^2}{4i^2 -1} && \square
+\end{align*}
+\newpage
+\subsection{Korollar zur Sterlingformel}
+
+\renewcommand*{\rectangled}[1]{\tikz[baseline=(char.base)]{
+  \node[shape=rectangle,draw,inner sep=2pt, red] (char) {\textcolor{black}{#1}};}}
+\newcommand{\pihalbe}{\frac{\pi}{2}}
+\newcommand{\limmesngegenunendlich}{\lim_{n \rightarrow \infty}}
+\newcommand{\pivoneinsbisn}{\Pi_{i = 1}^{n}}
+\underline{\textbf{Beweis:}}
+\begin{align*}
+    \text{Wallis } \Rightarrow \frac{\pi}{2} &= \limmesngegenunendlich \pivoneinsbisn \frac{4i^2}{4i^2-1} = \limmesngegenunendlich \pivoneinsbisn\frac{2i}{2i+1} \frac{2i}{2i-1}\\
+    &= \limmesngegenunendlich \frac{1}{2n+1} \pivoneinsbisn\left(\frac{2i}{2i-1} \right)^2 = \limmesngegenunendlich \frac{1}{2n}\pivoneinsbisn \left(\frac{2i}{2i-1} \right)^2\\
+\end{align*}
+\begin{align*}
+    \Rightarrow \rectangled{$\sqrt{\pi n}$} \sim \pivoneinsbisn \frac{2i}{2i-1} = \rectangled{$\frac{\pivoneinsbisn 2i}{\pivoneinsbisn 2i-1}$}\\
+    \rectangled{$\pivoneinsbisn 2i = 2n^2 (n!)$}\\
+    \pivoneinsbisn 2i-1 = \frac{\pivoneinsbisn i}{\pivoneinsbisn 2i} = \rectangled{$\frac{(2n)!}{2^n n!}$} && \square
+\end{align*}
+
+\subsection{Sterling}
+\begin{align*}
+    n! \sim \sqrt{2\pi n} (\frac{n}{e})^n
+\end{align*}
+\underline{\textbf{Beweis:}}\\
+Definiere $a_n = \frac{\sqrt{n}\left(\frac{n}{e}\right)^n}{n!}$ und $b_n = a_n \cdot \exp(\frac{1}{12n}) \geq a_n$
+\begin{align*}
+    \log a_n = \frac{1}{2} \cdot \log n - n + \log \frac{n^n}{n!} = \frac{1}{2} \cdot \log n - n + \sum_{i = 1}^n \log \frac{n}{i}
+\end{align*}
+\begin{align*}
+    \log b_n = \log a_n + \frac{1}{12n} = \frac{1}{2} \log n - n + \sum_{i = 1}^n \log \frac{n}{i} + \frac{1}{12n}
+\end{align*}
+\begin{align*}
+    \log a_{n+1} - \log a_n &= \frac{1}{2} \log (n+1) - (n+1) + \sum_{i =1}^{n+\not1} \log \frac{n+i}{i}\\
+    &-\left( \frac{1}{2} \log n - n + \sum_{i = 1}^{n} \log \frac{n}{i}\right)\\
+    &= \frac{1}{2} \log \frac{n+1}{n} - 1 + n \log \frac{n+1}{n} = \left(n + \frac{1}{2}\right) \log \frac{n+1}{n} - 1
+\end{align*}
+\begin{align*}
+    \log b_{n+1} - \log b_n = \log a_{n+1} - \log a_n + \frac{1}{12n} - \frac{1}{12(n+1)} = \left( \frac{1}{2} + n\right) \log \frac{n+1}{n} - 1 - \frac{1}{12n(n+1)}
+\end{align*}
+Hilfsfunktionen:
+\begin{align*}
+    \phi(x) = \frac{1}{2} \log \frac{1+x}{1-x} - x && \psi(x) = \phi(x) - \frac{x^3}{3(1-x^2)}\\
+    \phi(0) = 0 && \psi(0) = 0
+\end{align*}
+\begin{align*}
+    \phi'(x) = \frac{x^2}{1 - x^2} \geq 0 \quad (0 \leq x < 1) && \psi'(x) = - \frac{x^4}{6(1-x^2)^2} \leq 0 \quad (0 \leq x < 1)\\
+    \Rightarrow \phi(x) \geq 0 \quad \text{für } 0 \leq x \leq 1 && \psi(x) \leq 0 \quad \text{für } 0 \leq x \leq 1
+\end{align*}
+\underline{\textbf{Einsetzen:}}
+\newcommand{\einsdurchzweinpluseins}{\frac{1}{2n+1}}
+\begin{align*}
+    x = \frac{1}{2n+1}
+\end{align*}
+
+
+
+Anmerkung:
+\begin{align*}
+    &\Rightarrow 0 \leq \frac{1}{2} \log \frac{1 +x}{1-x} - x \leq \frac{x^3}{3(1- x^2)}\\
+    &0 \leq \frac{1}{2} \log \frac{1 + \einsdurchzweinpluseins}{1 - \einsdurchzweinpluseins} - \einsdurchzweinpluseins \leq \frac{\left(\einsdurchzweinpluseins\right)^3}{3\left(1 - \einsdurchzweinpluseins\right)^2}\\
+    &= \frac{1}{2} \log \frac{n+1}{n} - \einsdurchzweinpluseins \leq \frac{1}{12n(n+1)(2n+1)}\\
+    &\Rightarrow 0 \leq (n + \frac{1}{2}) \log \frac{n+1}{n} - 1 \leq \frac{1}{12n(n+1)}
+\end{align*}
+Daraus folgt
+\begin{align*}
+    &\Rightarrow \log a_{n+1} \geq \log a_n\\
+    &\log b{n+1} \leq b_n\\
+    &\Rightarrow a_{n+1} \geq a_n\\
+    &b_{n+1} \leq b_n
+\end{align*}
+Also wissen wir:
+\begin{align*}
+    &a_n \leq a_{n+1} \leq b_{n+1} \leq b_n \text{ und }\\ &\limmesngegenunendlich \frac{a_n}{b_n} = \limmesngegenunendlich \exp\left( - \frac{1}{12n}\right) = 1
+\end{align*}
+Also existiert
+\begin{align*}
+    &x = \limmesngegenunendlich a_n \text{ und } c = \limmesngegenunendlich b_n\\
+    &\Rightarrow \limmesngegenunendlich \frac{\sqrt{n} \left(\frac{n}{e}\right)^n}{n!} = c > 0
+\end{align*}
+Gerade Werte einsetzen:
+\begin{align*}
+    0 < c = \limmesngegenunendlich a_{2n} &= \limmesngegenunendlich \frac{\sqrt{2n}\left(\frac{2n}{e}\right)^{2n}}{(2n)!} = \sqrt{2} \limmesngegenunendlich \underbrace{\frac{n!^22^{2n}}{(2n)! \sqrt{n}}}_{\rightarrow \sqrt{n}} \sqrt{n} \left( \underbrace{\sqrt{\pi} \left(\frac{n}{e}\right)^n}_{a_n}\right)^2\\
+    &= \sqrt{2\pi} \limmesngegenunendlich a^2_n = \sqrt{2\pi} \cdot c^2\\
+    \Rightarrow c = \frac{1}{\sqrt{2\pi}} &&&\square
+\end{align*}
+\newcommand{\ndurche}{\left(\frac{n}{e}\right)}
+\renewcommand{\summeeinsbisn}{\sum_{i = 1}^{n}}
+\begin{align*}
+    \log a_n = \log \frac{\sqrt{n} \ndurche^n}{n!} &= \log \sqrt{n} + \log \left(\ndurche^n\right) - \log (n!)\\
+    &= \frac{1}{2} \log n + n \log \ndurche - \log \pivoneinsbisn i\\
+    &= \frac{1}{2} \log n + n(\log n  - \underbrace{\log e}_{1}) - \sum_{i = 1}^n \log i\\
+    &= \frac{1}{2} \log n - n + \sum_{i=1}^{n} \log \frac{n}{i}
+\end{align*}
+
+\subsection{Pascalsches Dreieck}
+\begin{center}
+\begin{tikzpicture}
+\node(0) at ( 0, 0) {1};
+\node(11) at ( -1, -1) {1};
+\node(12) at ( 1, -1) {1};
+\node(21) at ( -2, -2) {1};
+\node(22) at ( 0, -2) {2};
+\node(23) at ( 2, -2) {1};
+\node(31) at (-3, -3) {1};
+\node(32) at (-1, -3) {3};
+\node(33) at (1, -3) {3};
+\node(34) at (3, -3) {1};
+\node(41) at (-4, -4) {1};
+\node(42) at (-2, -4) {4};
+\node(43) at (0, -4) {6};
+\node(44) at (2, -4) {4};
+\node(45) at (4, -4) {1};
+\end{tikzpicture}
+\end{center}

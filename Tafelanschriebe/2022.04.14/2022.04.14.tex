@@ -1,0 +1,91 @@
+\subsection{Quicksort nach Dijkstra in C}
+
+\textbf{Live-Programmierung:}
+Pipe-Operator: $|$(output des linken Teils wird als Input des rechtens gehandhabt)\\
+\\
+shuf mischt die Eingabe
+\begin{center}
+\begin{lstlisting}
+seq 10 | shuf
+\end{lstlisting}
+\end{center}
+
+\textbf{Tafel:}\\
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    1 & 2&3&4&5&6&7&8&9\\\hline
+\end{tabular} $\overset{Input}{\rightarrow}$ \begin{tabular}{|c|}
+    \hline
+    A\\\hline
+\end{tabular}\\
+
+Wie bekommt man es hin, dass die der Speicher nicht zu groß wird aus der Eingabe heraus?\\
+Erster Vorschlag:
+\begin{tikzpicture}
+\node (1) at (0, 0) [rectangle] {1};
+\node (2) at (1, 0) [rectangle] {2};
+\node (3) at (2, 0) [rectangle] {3};
+\draw[->] (1) to (2);
+\draw[->] (2) to (3);
+\end{tikzpicture}
+Zweiter Vorschlag:\\
+Man erstellt einen Speicher und wenn der vom Platz nicht reicht wird, dieser einfach verdoppelt:
+\begin{center}
+    \begin{tabular}{|c|}
+        \hline 1 \\\hline
+    \end{tabular}
+    \\
+    \begin{tabular}{|c|c|}
+        \hline 1 & 2 \\\hline
+    \end{tabular}
+    \\
+    \begin{tabular}{|c|c|c|c|}
+        \hline 1 & 2 & 3 & 4\\\hline
+    \end{tabular}
+\end{center}
+
+\newpage
+\textbf{Live-Programmierung:}\\
+Programm für die Speicherallocation bei zu großen Eingaben
+\begin{lstlisting}
+/* Dieser Code wird ins Vorlesungs Git-Repo hochgeladen */
+#include<stdlib.h>
+#include<stdio.h>
+
+char *input=NULL;
+int length=0;
+
+int read_input(void) {
+    int size=0; /* size of memory block */
+    int fill=0; /* number characters read */
+    int c; /* next character */
+    
+    while((c=getchar()) != EOF){
+        if(fill>=size){ /* wenn der Speicher nicht reicht */
+            int i,newsize=2*size+1;
+            char *newinput;
+            
+            /*Bestell Speicher in der entsprechenden Groesse */
+            if((newinput=(char *)malloc(sizeof(char)*newsize))==NULL) 
+                return -1;
+            for(i=0;i<size;i++) newinput[i]=input[i];
+            if(input!=NULL) free(input);
+            input=newinput;
+            size=newsize;
+        }
+        input[fill++]=(char)c; /*leg das neue Symbol ab */
+    }
+    length=fill;
+    return length; /* Gibt neue Laenge zurueck */
+}
+
+int main(int argc, char **argv){
+    int i;
+    
+    if(read_input()<=0) return 1;
+    for(i=0;i<length;i++) putchar(input[i]);
+}
+\end{lstlisting}
+
+Es muss jetzt noch die Eingabe in richtige Integer-Werte übersetzt werden. Dies haben wir an der Stelle leider nicht geschafft. Er bereitet dies zum nächsten Mal vor und zeigt uns anschließend das Ergebnis.

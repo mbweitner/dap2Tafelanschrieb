@@ -1,0 +1,188 @@
+\usepackage{listings}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Umlaute aktivieren damit äöüÄÖÜ angezeigt werden %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Importieren der wichtigsten Mathepakete für Formeln etc. %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{extarrows}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Weitere Zeichenpakete für zusätzliche Symbole %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{stmaryrd}
+\usepackage{wasysym}
+\usepackage{pifont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Mit dem folgenden Paket können einfache Rechnungen automatisch ausgerechnet werden%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xfp}%Beispiel: \fpeval{3+5+6} => 14
+\usepackage{fp}
+\usepackage{spreadtab}%Tabellenberechnungen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Pakte um Aufzählungen "\enumerate" anpassen zu können %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumerate}
+\usepackage{enumitem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Pakte zum definieren von Farben %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xcolor}
+\usepackage{color, colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Ein paar Grafikpakete zum erstellen von Grafiken, Diagrammen%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Pakte für erweitert einstellbare Tabellen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tabularx}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Makro zum Anlegen einer Aufgabe (\Aufgabe{AufgabenNummer}{Aufgaben_Titel}{Erreichbare_Punkte})%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Aufgabe}[3]{\textsf{\textbf{Aufgabe #1}} \textit{#2} \hfill (#3 Punkte)\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%Wichtige Mathesymbole welche in einer Matheumgebung genutzt werden können%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%Zahlenarten%%%%%%%%%%%%%%%%%
+\newcommand{\N}{\mathbb N}                              %Natürliche Zahlen
+\newcommand{\R}{\mathbb R}                              %Reele Zahlen
+\newcommand{\C}{\mathbb C}                              %Komplexe Zahlen
+\newcommand{\Z}{\mathbb Z}                              %Ganze Zahlen
+\newcommand{\Q}{\mathbb Q}                              %Rationale Zahlen
+
+%%%%%%%%Gleichungen Ungleichungen etc.%%%%%
+\newcommand{\Ra}{\Rightarrow}							% "daraus folgt"
+\newcommand{\La}{\Leftarrow}							% (analog wie oben)
+\newcommand{\eq}{\Leftrightarrow}						% äquivalent
+\newcommand{\upto}{\nearrow}							% Konvergenz von unten
+\newcommand{\downto}{\searrow}							% Konvergenz von oben
+
+%%%%%%%%%%check und uncheck%%%%%%%%%%%%%%%%
+\newcommand{\cmark}{\text{\ding{51}}}                   % Check-Mark
+\newcommand{\xmark}{\text{\ding{55}}}                   % UncheckMark
+
+%%%%%%%%%%Einige Farben %%%%%%%%%%%%%%%%%%%
+%%%%%%Rot-töne%%%%%%%
+\definecolor{Rot}{rgb}{255,0,0}
+\definecolor{Dunkelrot}{rgb}{139,0,0}
+\definecolor{HellesKorallrot}{rgb}{240,128,128}
+\definecolor{Feuerrot}{rgb}{178,34,34}
+\definecolor{Braun}{rgb}{165,42,42}
+\definecolor{Indianerrot}{rgb}{205,92,92}
+\definecolor{DunklesRosa}{rgb}{188,143,143}
+\definecolor{Kastanienbraun}{rgb}{128,0,0}
+\definecolor{HellesRosa}{rgb}{255,228,225}
+\definecolor{Lachsrosa}{rgb}{250,128,114}
+\definecolor{Tomatenrot}{rgb}{255,99,71}
+\definecolor{DunklesLachsrosa}{rgb}{233,150,122}
+\definecolor{Korallenrot}{rgb}{255,127,80}
+\definecolor{Orangerot}{rgb}{255,69,0}
+\definecolor{HellesLachsrosa}{rgb}{255,160,122}
+
+%%%%%%Orange-Gelb-töne%%%%%%%
+\definecolor{Orange}{rgb}{255,165,0}
+\definecolor{Blütenweiß}{rgb}{255,250,240}
+\definecolor{Goldrute}{rgb}{218,165,32}
+\definecolor{DunkleGoldrute}{rgb}{184,134,11}
+\definecolor{HellesMaisgelb}{rgb}{255,248,220}
+\definecolor{Gold}{rgb}{255,215,0}
+\definecolor{Khaki}{rgb}{240,230,140}
+\definecolor{ZartesZitronengelb}{rgb}{255,250,205}
+\definecolor{BlasseGoldrute}{rgb}{238,232,170}
+\definecolor{DunklerErdton}{rgb}{189,183,107}
+\definecolor{Beige}{rgb}{245,245,220}
+\definecolor{HellesBlassesGelb}{rgb}{250,250,210}
+\definecolor{Elfenbein}{rgb}{255,255,240}
+\definecolor{Hellgelb}{rgb}{255,255,224}
+\definecolor{Gelb}{rgb}{255,255,0}
+
+%%%%%%Grün-töne%%%%%%%
+\definecolor{Gruen}{rgb}{0,255,0}
+\definecolor{Olive}{rgb}{128,128,0}
+\definecolor{Gelbgruen}{rgb}{154,205,50}
+\definecolor{Graugruen}{rgb}{107,142,35}
+\definecolor{DunklesOlivegruen}{rgb}{85,107,47}
+\definecolor{Gruengelb}{rgb}{173,255,47}
+\definecolor{Chartreuse}{rgb}{127,255,0}
+\definecolor{Grasgruen}{rgb}{124,252,0}
+\definecolor{Honigmelone}{rgb}{240,255,240}
+\definecolor{Hellgruen}{rgb}{144,238,144}
+\definecolor{BlassesGruen}{rgb}{152,251,152}
+\definecolor{DunklesSeeGruen}{rgb}{143,188,143}
+\definecolor{Limonengruen}{rgb}{50,205,50}
+\definecolor{Waldgruen}{rgb}{34,139,34}
+\definecolor{DunkelGruen}{rgb}{0,128,0}
+\definecolor{DunkelGruen2}{rgb}{0,100,0}
+\definecolor{SeeGruen}{rgb}{46,139,87}
+\definecolor{MediumSeeGruen}{rgb}{60,179,113}
+\definecolor{Frühlingsgruen}{rgb}{0,255,127}
+
+%%%%%%Blau-töne%%%%%%%%
+\definecolor{Aquamarin}{rgb}{127,255,212}
+\definecolor{Tuerkis}{rgb}{64,224,208}
+\definecolor{Himmelblau}{rgb}{240,255,255}
+\definecolor{HellesZyan}{rgb}{224,255,255}
+\definecolor{BlassesTuerkis}{rgb}{175,238,238}
+\definecolor{Zyan}{rgb}{0,255,255}
+\definecolor{Petrol}{rgb}{47,79,79}
+\definecolor{DunklesZyan}{rgb}{0,139,139}
+\definecolor{DunklesTuerkis}{rgb}{0,206,209}
+\definecolor{Kadettblau}{rgb}{95,158,160}
+\definecolor{Puderblau}{rgb}{176,224,230}
+\definecolor{TiefesHimmelblau}{rgb}{0,191,255}
+\definecolor{Hellblau}{rgb}{173,216,230}
+\definecolor{Himmelblau}{rgb}{135,206,235}
+\definecolor{HellesHimmelblau}{rgb}{135,206,250}
+\definecolor{Stahlblau}{rgb}{70,130,180}
+\definecolor{HellesStahlblau}{rgb}{176,196,222}
+\definecolor{Kornblumenblau}{rgb}{100,149,237}
+\definecolor{Königsblau}{rgb}{65,105,225}
+\definecolor{Marineblau}{rgb}{0,0,128}
+\definecolor{Mitternachtsblau}{rgb}{25,25,112}
+\definecolor{Lavendel}{rgb}{230,230,250}
+\definecolor{Blau}{rgb}{0,0,255}
+\definecolor{Dunkelblau}{rgb}{0,0,139}
+
+%%%%%%%%Lila-töne%%%%%%%%%%
+\definecolor{Schlieferblau}{rgb}{106,90,205}
+\definecolor{dunklesSchieferblau}{rgb}{72,61,139}
+\definecolor{Lila}{rgb}{147,112,219}
+\definecolor{RebeccaLila}{rgb}{102,51,153}
+\definecolor{BlauLila}{rgb}{138,43,226}
+\definecolor{Indigoblau}{rgb}{75,0,130}
+\definecolor{Dunkelviolett}{rgb}{148,0,211}
+\definecolor{Pflaumenblau}{rgb}{221,160,221}
+\definecolor{Violett}{rgb}{238,130,238}
+\definecolor{Magenta}{rgb}{255,0,255}
+\definecolor{DunklesMagenta}{rgb}{139,0,139}
+\definecolor{Purpur}{rgb}{128,0,128}
+\definecolor{HellesViolett}{rgb}{218,112,214}
+\definecolor{Violettrot}{rgb}{199,21,133}
+\definecolor{KraeftigesPink}{rgb}{255,20,147}
+\definecolor{LeuchtendesPink}{rgb}{255,105,180}
+\definecolor{BlassesLila}{rgb}{219,112,147}
+\definecolor{Pink}{rgb}{255,192,203}
+
+%%%%%%Grau-töne%%%%%%%%%%%
+\definecolor{ZartesHellgrau}{rgb}{245,245,245}
+\definecolor{Hellgrau}{rgb}{220,220,220}
+\definecolor{Silbergrau}{rgb}{211,211,211}
+\definecolor{Silber}{rgb}{192,192,192}
+\definecolor{Dunkelgrau}{rgb}{105,105,105}
+\definecolor{Grau}{rgb}{128,128,128}
+
+
+
+
+\usepackage{xargs}
