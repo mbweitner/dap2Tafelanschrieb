@@ -70,4 +70,3 @@ Induktionsschritt: Zeige $T(n) \leq cn$\\
    10c'\underbrace{(\frac{45}{n-4} +1)}_{\text{mit } n_0\leq 90, \leq 1} &\leq c & \Leftrightarrow \\
    20c' &\leq c \Rightarrow c = 20c'& \square
 \end{align*}
-
