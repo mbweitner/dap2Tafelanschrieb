@@ -1,0 +1,73 @@
+\newcommand{\gaussrauf}[1]{\lceil #1 \rceil}
+\newcommand{\gaussrunter}[1]{\lfloor #1 \rfloor}
+
+
+\subsection{Select Beweis}
+
+\begin{align*}
+    T(n) &= \begin{cases}
+    O(1) & , \text{wenn } n = 1\\
+    O(n) + T(\gaussrunter{\frac{n}{5}} + 1) + \max \{T(|K|), T(|G|)\} &, \text{sonst }
+    \end{cases}
+    \\
+    &\leq \begin{cases}
+    O(1) & \text{, wenn } n = 1\\
+    c' \cdot n + T(\gaussrunter{\frac{n}{5}} +1) + T(\frac{7n}{10} + \frac{7}{2}) & \text{, sonst}
+    \end{cases}
+\end{align*}
+
+\begin{align*}
+    m_i &< m \Rightarrow \text{ Alle Elemente aus } T_i < m\\
+    m_i &> m \Rightarrow \leq 2 \text{ Elemente } < m\\
+    n' &\leq 5N' + 2N'''\\
+    n''' &\leq 2N' + 5N'''
+\end{align*}
+
+\begin{align*}
+    N' \leq \frac{N}{2} \leq \frac{1}{2}(\gaussrunter{\frac{n}{5}} + 1)\\
+    N''' \leq \frac{N}{2} \leq \frac{1}{2} (\gaussrunter{\frac{n}{5}} +1 )
+\end{align*}
+
+\begin{align*}
+    n' \leq 7 (\frac{1}{2} ( \gaussrunter{\frac{n}{5}} + 1)) = \frac{7n}{10} + \frac{7}{2}\\
+    n''' \leq 7 (\frac{1}{2} ( \gaussrunter{\frac{n}{5}} + 1)) \leq \frac{7n}{10} + \frac{7}{2}
+\end{align*}
+
+
+z.Z: 
+\begin{align*}
+    T(n) = O(n)
+\end{align*}
+
+\begin{align*}
+        T(n) &= O(n)\\
+        T(n) &= \begin{cases}
+        T(\frac{7n}{10} + \frac{7}{2}) + T(\gaussrunter{\frac{n}{5}} + 1) + c'n\\
+        O(1)
+        \end{cases}
+        &\leq c \cdot (n+1)
+    \end{align*}
+
+\begin{align*}
+         n_0, c, T(n) \leq c(n+1), \forall n \geq n_0, n_0 = 90, c = 20c'
+\end{align*}
+Induktionsanfang: $T(n_0) \leq c \cdot n_0$\\
+Induktionsvoraussetzung: $T(n') \leq cn, \forall n' \leq n$\\
+Induktionsschritt: Zeige $T(n) \leq cn$\\
+\begin{align*}
+    T(n) &\leq T(\frac{7n}{10} + \frac{7}{2}) + T(\gaussrunter{\frac{n}{5}} + 1) + c'n\\
+    &\leq c (\frac{7n}{10} + \frac{7}{2}) + c \cdot (\gaussrunter{\frac{n}{5}} + 1) + c'n\\
+    &\leq c \cdot (\frac{7n}{10} + \frac{7}{2} + \gaussrunter{\frac{n}{5}} + 1) + c'n\\
+    &\leq c \cdot ( \frac{9n}{10} + \frac{9}{2}) + c'n = \frac{9nc}{10} + \frac{9}{2}c + c'n\\
+    &= cn + \underbrace{(- \frac{1}{10} cn + \frac{9c}{2} + c'n)}_{\leq 0 !} \overset{!}{\leq} cn\\
+\end{align*}
+\begin{align*}
+   \underbrace{ -\frac{1}{10} cn + \frac{9c}{2}} + c'n &\leq 0 & \Leftrightarrow\\
+   c'n &\leq \frac{cn}{10} - \frac{9c}{2} = n ( \frac{c}{10} - \frac{9c}{2n}) & \Leftrightarrow\\
+   c' &\leq \frac{c}{10} - \frac{9c}{2n} = c (\frac{1}{10} - \frac{9}{2n}) = c \cdot (\frac{n-45}{10n}) & \Leftrightarrow \\
+   \underbrace{c'}_{\text{Konstante}} \cdot (\frac{10n}{n-45}) &\leq c & \Leftrightarrow\\
+   10 c'(\frac{n}{n-45}) &\leq c &\Leftrightarrow\\
+   10c'\underbrace{(\frac{45}{n-4} +1)}_{\text{mit } n_0\leq 90, \leq 1} &\leq c & \Leftrightarrow \\
+   20c' &\leq c \Rightarrow c = 20c'& \square
+\end{align*}
+
