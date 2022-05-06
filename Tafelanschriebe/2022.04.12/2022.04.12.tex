@@ -13,7 +13,7 @@ Wähle $k \in \N$, $k > l$ Dann:
     &= \frac{k!}{n^{k - l}} \hspace{2em} n \rightarrow \infty, \rightarrow 0
 \end{align*}
 \begin{align*}
-    f(n) &= o(y(n)) \text{ falls } \lim_{n \rightarrow \infty} \frac{f(n)}{g(n)} = 0\\
+    f(n) &= o(g(n)) \text{ falls } \lim_{n \rightarrow \infty} \frac{f(n)}{g(n)} = 0\\
     \rightarrow n^l &= o(\exp(n))
 \end{align*}
 Allgemeiner:
@@ -86,7 +86,7 @@ Es gilt:
 \begin{align*}
     n \cdot X_n &= n^2 + \sum_{k=1}^{n}(X_{k-1} + X_{n-k})\\
     &= n^2 + 2 \cdot \sum_{k =0}^{n-1} X_k\\
-    n+1) X_{n+1} &= (n+1)^2 + 2 \cdot \sum_{k=0}^n  X_k
+    (n+1) X_{n+1} &= (n+1)^2 + 2 \cdot \sum_{k=0}^n  X_k
 \end{align*}
 \begin{align*}
     (n+1)X_{n+1} - n \cdot X_n = (n+1)^2 - n^2 +2 X_n\\
@@ -113,5 +113,5 @@ Es gilt:
 
 \underline{Quicksort:}
 \begin{align*}
-    2(n+1) H_n = 2(n+1) \log(n) + O(n) \sim 2n\log(n) = \underline{\underline{O(n\log n)}}
+    2(n+1) H_n = 2(n+1) (\log(n) + O(n)) \sim 2n\log(n) = \underline{\underline{O(n\log n)}}
 \end{align*}
