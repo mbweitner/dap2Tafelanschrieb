@@ -62,30 +62,30 @@
 \node(2) at (0, -2) [] {\liste{4}{4 & 2 & 4 & 6}};
 \node(3) at (4, -2) [] {\liste{5}{3 & 2 & 4 & 6 & 3}};
 \node (4) at (0, -4) [] {\liste{4}{4 & 2 & 4 & 6}};
-\node (5) at (0, -6) [] {\liste{5}{3 & 2 & 3 & 6 & 3}};
-\node (6) at (0, -8) [] {\liste{5}{3 & 3 & 3 & 6 & 3}};
+\node (5) at (4, -4) [] {\liste{5}{3 & 2 & 3 & 6 & 3}};
+\node (6) at (4, -6) [] {\liste{5}{3 & 3 & 3 & 6 & 3}};
 \draw[->] (1) to node[left]{read 2} (2);
 \draw[->] (1) to node[right]{read * 2} (3);
 \draw[->] (2) to node[left]{store * 1} (4);
-\draw[->] (4) to node[left]{store * 1} (5);
-\draw[->] (5) to node[left]{store * 1} (6);
+\draw[->] (3) to node[right]{store * 1} (5);
+\draw[->] (5) to node[right]{store 1} (6);
 \end{tikzpicture}
 
 \subsubsection{Beispiel für jump}
 
 \begin{verbatim}
-    store 2
-    load k
-    jzero 9
-    add -1
-    store 1
-    load 2
-    add 1
-    jump 3
-    halt
+    1 | store 2
+    2 | load k
+    3 | jzero 9
+    4 | add -1
+    5 | store 1
+    6 | load 2 (später read 2)
+    7 | add 1
+    8 | jump 3
+    9 | halt
 \end{verbatim}
 
-FÜr $k$ setzen wir mal 3 ein.
+Für $k$ setzen wir mal 3 ein.
 \begin{tikzpicture}
 \node (0) at (0,0) []{\liste{4}{2 & 0 & 0 & 0}};
 \node (1) at (0,-2) []{\liste{4}{2 & 0 & 2 & 0}};
@@ -104,7 +104,7 @@ FÜr $k$ setzen wir mal 3 ein.
      \liste{5}{2 & 0 & 2 & 0 & ...} & z = $\not 3 \ 4$\\
      \liste{5}{2 & 2 & 2 & 0 & ...} & z = 5\\
      \liste{5}{2 & 2 & 2 & 0 & ...} & z = 6\\
-     \liste{5}{2 & 2 & 2 & 0 & ...} & z = 7\\
+     \liste{5}{3 & 2 & 2 & 0 & ...} & z = 7\\
      \liste{5}{3 & 2 & 2 & 0 & ...} & z = 8\\
      \liste{5}{3 & 2 & 2 & 0 & ...} & $z = 3 \Rightarrow 4$\\
      \liste{5}{2 & 0 & 0 & 0 & ...} & \\
@@ -139,16 +139,16 @@ Die Laufzeit beträgt normal: $O(r_j)$
 Länge $n$ größte $e$ $|e|= 2^{n-1}$\\
 $\Rightarrow$ Maximum aller $e$ mit $|e| \leq 2^n$\\
 
-\begin{tabular}{ccc}
-    &mit Addition & ohne Addition\\
+\begin{tabular}{cccc}
+    &mit Addition & ohne Addition & mit Muliplikation\\
     $r_0 = r_0 + r_j$&$O(1)$ & $O(|r_j|)$\\
-    $r_0 = r_0 * r_j$&$O(|r_j| \cdot r_j|)$ & $O(1)$ 
+    $r_0 = r_0 * r_j$&$O(|r_j| \cdot r_j|)$ & & $O(1)$ 
 \end{tabular}
 
 n-mal $r_0 * r_0$ $2^{2^n}$
 \begin{align*}
 \begin{cases}
 \text{mult-Befehl:} & O(n)\\
-\text{add } r_j & O(2^n)
+\text{add } r_j & O(2^n) \rightarrow\text{ exponentieller Unterschied zu mult-Befehl}
 \end{cases}
 \end{align*}

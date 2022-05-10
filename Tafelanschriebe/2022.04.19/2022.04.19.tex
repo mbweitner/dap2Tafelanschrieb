@@ -10,13 +10,13 @@ Quicksort hat eine Laufzeit von $\Theta(n \log n)$
     \multicolumn{2}{c}{Laufzeit}\\
     $\Theta(n^2)$ & $\Theta(n \log n)$\\
     InsertionSort & Quicksort\\\hline
-    BubbleSOrt & MargeSort\\
+    BubbleSort & MergeSort\\
      & Heapsort
 \end{tabular}
 \end{center}
 Wir werden zeigen:
 \begin{align*}
-    \log(n!) = \Theta(n \lor n)
+    \log(n!) = \Theta(n \log n)
 \end{align*}
 
 
@@ -83,7 +83,7 @@ $S_n = $ Menge aller n-Permutationen
   \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
   \renewcommand*\rectangled[1]{\tikz[baseline=(char.base)]{
   \node[shape=rectangle,draw,inner sep=2pt] (char) {#1};}}
-Angenommen $T$ ist die erwartete Anzahl von Vergleichen zum Sortieren einer zufälligen n-Permutation. Dann gibt es mindestens $\frac{n!}{2}$ n-Permutationen, für die der Algorithmus $\geq 2 \cdot T$ Vergleiche braucht. Der Algorithmus stellt also $X \leq 2 \cot T$ Vergleichsanfragen.\\
-Die Antworten können durch einen Vektor aus $\{0, +1, -1\}$ beschrieben werden. Weil beim Sortiervorgang keine Information verloren geht, folgt:
+Angenommen $T$ ist die erwartete Anzahl von Vergleichen zum Sortieren einer zufälligen n-Permutation. Dann gibt es mindestens $\frac{n!}{2}$ n-Permutationen, für die der Algorithmus $\leq 2 \cdot T$ Vergleiche braucht. Der Algorithmus stellt also $X \leq 2 \cdot T$ Vergleichsanfragen.\\
+Die Antworten können durch einen Vektor aus $\{0, +1, -1\}^X$ beschrieben werden. Weil beim Sortiervorgang keine Information verloren geht, folgt:
 \[3^{2T + 1} \geq \sum_{X = 1}^{2 \cdot T} 3^X \geq \circled{$\frac{n!}{2}$} \Rightarrow 2T + 1 \geq \log_3(n!) \Rightarrow T \geq \frac{1}{2}\log_3(n!) -1 \Rightarrow T=\rectangled{$\Omega(\log(n!))$}\]
 \[\log_3 z = \frac{\log(z)}{\log 3}\]
