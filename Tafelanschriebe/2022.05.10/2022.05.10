@@ -1,0 +1,117 @@
+\subsection{Wiederholung Auswahlproblem}
+\begin{center}
+    \begin{tikzpicture}
+    %schwarzes Layout
+    \draw[-] (0,0) to (10,0);
+    \foreach \x in {1,...,4}{
+    \draw[-] (\x, 0) to (\x, 0.5);}
+    \foreach \x in {6, ...,10}{
+    \draw[-] (\x, 0) to (\x, 0.5);}
+    \foreach \x in {0,5, 10}{
+    \draw[-] (\x, 0) to (\x, 0.7);}
+    %markierte haelften
+    \foreach \x in {1,...,4}{
+    \draw[-, red] (\x, 0) to (\x, 0.5);}
+    \foreach \x in {6, ...,10}{
+    \draw[-, blue] (\x, 0) to (\x, 0.5);}
+    \draw[-,red] (0, 0) to (0, 0.7);
+    \draw[-,red] (5, 0) to (5, 0.7);
+    \draw[-,blue] (5, 0) to (5, 0.7);
+    \draw[-,blue] (10, 0) to (10, 0.7);
+    \node(1) at (0,-0.5) {1};
+    \node(1) at (10,-0.5) {$n$};
+    \end{tikzpicture}
+\end{center}
+
+\begin{center}
+    \begin{tikzpicture}[zustand/.style={draw, circle, inner sep = 4}]
+    \node(1) at (0,0) [zustand]{ };
+    \node at (0.5,0.5) []{100};
+    \node(2) at (-2,-2) [zustand]{K};
+    \node at (-4,-2) []{51};
+    \node at (-2.5,-1.5) []{60};
+    \node(3) at (0,-2) [zustand]{M};
+    \node at (0.5,-1.5) []{1};
+    \node(4) at (2,-2) [zustand]{G};
+    \node at (2.5,-1.5) []{39};
+    \node(5) at (-4,-4) [zustand]{K};
+    \node at (-4.5,-3.5) []{19};
+    \node(6) at (-2,-4) [zustand]{M};
+    \node at (-1.5,-3.5) []{1};
+    \node(7) at (0,-4) [zustand]{G};
+    \node at (0.5,-3.5) []{40};
+    \node at (0.5,-5.5) []{\underline{\underline{31}}};
+    
+    \draw[-] (1) to (2);
+    \draw[-] (1) to (3);
+    \draw[-] (1) to (4);
+    \draw[-] (2) to (5);
+    \draw[-] (2) to (6);
+    \draw[-] (2) to (7);
+    \end{tikzpicture}
+\end{center}
+\begin{center}
+    \begin{tikzpicture}
+    \draw[-] (0,0) to (10,0);
+    \draw[-] (0,0) to (0,0.7);
+    \draw[-] (6,0) to (6,0.7);
+    \draw[-] (7,0) to (7,0.7);
+    \draw[-] (10,0) to (10,0.7);
+    \node at (3, 0.5) {K};
+    \node at (6.5, 0.5) {M};
+    \node at (8.5, 0.5) {G};
+    \node at (0,-0.5) {1};
+    \node at (6,-0.5) {60};
+    \node at (7,-0.5) {62};
+    \node at (10,-0.5) {100};
+    \end{tikzpicture}
+\end{center}
+
+
+\subsection{Coding Session}
+Hier habe ich nicht mitgeschrieben, da der Code später im Git-Repo des Professors hochgeladen wird.
+
+\subsection{Hashing}
+Array:
+\begin{center}
+    \begin{tikzpicture}
+    %schwarzes Layout
+    \draw[-] (0,0) to (10,0);
+    \foreach \x in {1,...,4}{
+    \draw[-] (\x, 0) to (\x, 0.5);}
+    \foreach \x in {6, ...,10}{
+    \draw[-] (\x, 0) to (\x, 0.5);}
+    \foreach \x in {0,5, 10}{
+    \draw[-] (\x, 0) to (\x, 0.7);}
+    \end{tikzpicture}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{l|ll}
+    In der Informatik & Informatik & 2\\
+    geht es um Algoirithmen & Algorithmus & 1\\
+    und ihre Laufzeit & Laufzeit & 1\\
+    ...Algorithmen &\vdots
+    \end{tabular}
+\end{center}
+
+$f:$ Wörter $\rightarrow \{1, ..., m\}$\\
+$m$ \glqq möglichst klein\grqq
+
+$f($Apfel) = $f$(Banane) = 17
+\begin{center}
+\begin{tikzpicture}[every node/.style={draw, rectangle, inner sep = 4}]
+    \node(minus1) at (0,2) {16};
+    \node(0) at (2,2)[draw=none] {...};
+    \node(1) at (0,0) {17};
+    \node(2) at (3,0) {Apfel$|$3};
+    \node(3) at (6,0) {Banane$|$1};
+    \node(4) at (0,-2) {18};
+    \node(5) at (3,-2)[draw=none] {...};
+    \node(6) at (0,-4)[draw=none] {\vdots};
+    \draw[->] (minus1) to (0);
+    \draw[->] (1) to (2);
+    \draw[->] (2) to (3);
+    \draw[->] (4) to (5);
+\end{tikzpicture}
+\end{center}
