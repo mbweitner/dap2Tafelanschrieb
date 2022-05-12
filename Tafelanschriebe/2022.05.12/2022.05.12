@@ -1,0 +1,32 @@
+\subsection{Vortrag über Versionskontrollsysteme}
+Git ist toll :D\\
+Verwende es und lerne es du wirst es zu 100\% in der Zukunft verwenden ;-)
+
+\subsection{Hashing}
+$561$ multiplikatives Inverses $mod$ 790\\
+\begin{itemize}
+    \item Suche r sodass $561 \cdot r = 1 \mod 790$
+\end{itemize}
+$\Rightarrow$ Suche $n, s \in \N: 561 \cdot r + 790 \cdot s = 1$\\
+\begin{align*}
+    790 &= 1 \cdot 561 + 229\\
+    561 &= 2 \cdot 229 + 103\\
+    229 &= 2 \cdot 103 + 23\\
+    103 &= 4 \cdot 23 + 11\\
+    23 &= 2 \cdot 11 + \underbrace{\circled{1}}_{GGT(790, 561)}
+\end{align*}
+\begin{align*}
+    1 &= 23 - 2 \cdot 11\\
+    &= 23 - 2 \cdot (103 - 4 \cdot 23) = -2 \cdot 103 + 9 \cdot 23\\
+    &= - 2 \cdot 103 + 9\cdot (229 - 2 \cdot 103) = -20 \cdot 103 + 9 \cdot 229\\
+    &= -20 \cdot (561 - 2 \cdot 229) + 9 \cdot 229 = 49 \cdot 229 - 20 \cdot 561\\
+    &= 49 \cdot (790 - 1 \cdot 561) - 20 \cdot 561 = 49 \cdot 790 - 69 \cdot 561\\
+    &= 49 \cdot 790 + \underline{\underline{(-69)}} \cdot 561
+\end{align*}
+\begin{align*}
+    r &= -69 mod 790\\
+    r &= -69 + 790 mod 790\\
+    &= 7 \cdot 21 mod 790\\
+\end{align*}
+
+$r$ und $z$ werden Bezout-Multiplikatoren genannt. 
