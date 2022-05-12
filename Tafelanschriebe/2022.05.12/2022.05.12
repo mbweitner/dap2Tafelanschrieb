@@ -29,4 +29,4 @@ $\Rightarrow$ Suche $n, s \in \N: 561 \cdot r + 790 \cdot s = 1$\\
     &= 7 \cdot 21 mod 790\\
 \end{align*}
 
-$r$ und $z$ werden Bezout-Multiplikatoren genannt. 
+$r$ und $z$ werden Bezout-Multiplikatoren genannt.
