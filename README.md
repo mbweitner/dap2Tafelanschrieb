@@ -1,4 +1,7 @@
 # DAP2 Tafelanschrieb Sommersemester 2022
+
+## [Aktuelles PDF-Dokument](https://github.com/mbweitner/dap2Tafelanschrieb/raw/main/Tafelanschriebe/main.pdf)
+
 ## Beschreibung
 
 Dieses Repository enthält eine Latex-Version des Tafelanschriebs aus dem Modul Datenstrukturen, Algorithmen und Programmierung 2 der Technischen Universität Dortmund.
