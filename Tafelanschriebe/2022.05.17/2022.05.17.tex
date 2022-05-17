@@ -1,6 +1,27 @@
 \subsection{Hashing}
 \begin{center}
-Hier folgt noch ein Tikzpicture, was ähnlich zu der Abbildung in der Vorlesung ist
+    \begin{tikzpicture}
+        \node (1) at (0,1) {Hashtabelle (Array)}; 
+        \draw (-1, 0) rectangle ++ (2, -5);
+        \foreach \x in {0,...,-4}{
+            \draw[-] (-1, \x) to (1, \x);
+            \draw[-stealth, thick, line width = 1mm] (0, \x - 0.5) to (3, \x - 0.5);
+            
+            \draw[fill=black!5!white] (3, \x) rectangle (3+2, \x-1);
+            \draw[fill=white] (3, \x) rectangle (3+1, \x-1);
+        }
+        \foreach \x in {-1,-3,-4}{
+            \draw[-stealth, thick, line width = 1mm] (4.5, \x-0.5) to (7, \x - 0.5);
+            \draw [fill=black!5!white](7, \x) rectangle (7+2, \x-1);
+            \draw [fill=white](7, \x) rectangle (7+1, \x-1);
+        }
+        \draw[-stealth, thick, line width =1mm] (8.5, -1.5) to (11, -1.5);
+        \draw (11, -1)[fill=black!5!white] rectangle (13, -2);
+        \draw (11, -1)[fill=white] rectangle (12, -2);
+        
+        \draw [decorate,decoration = {brace,raise=5pt,amplitude=5pt, mirror}, line width = 1mm] (-1,-5) -- node[below = 2em]{Doppelt verkettete Listen} (13,-5);
+        \draw[decorate, decoration = {brace, raise = 5pt, amplitude=5pt, mirror}, line width = 1mm] (-1, 0) --node[left = 2em]{$m$} (-1, -5);
+    \end{tikzpicture}
 \end{center}
 $m$ beschreibt die Länge des Arrays, $n$ beschreibt die länge einer Liste im Feld des Arrays
 \begin{align*}
