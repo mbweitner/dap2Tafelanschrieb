@@ -1,0 +1,30 @@
+\subsection{Vortrag \glqq Dinge finden auf Linux\grqq}
+Hier wurde von Jonas Zohren (FOSS-AG) ein kurzer Vortrag über Linux gehalten.
+
+\subsection{Hashing}
+\underline{Beweis:} $V = \{(s, s') 0 \leq s, s' < p, s \neq s'\}$
+\begin{align*}
+    f_{s, s'}: (a, b) \mapsto (a \cdot s + b, a \cdot s' + b)\\
+   (s, s') \in V; \{ 1, \dots, p-1 \{x\}, 0, ..., q-1\}\rightarrow V
+\end{align*}
+\begin{center}
+\rectangled{Teil 1}\\ ist bijektiv   
+\end{center}
+\underline{Teil 2:}
+\begin{align*}
+    U = \{(r, r') \in V: r \mod m = r' \mod m \}
+\end{align*}
+Dann gilt: $|U| \leq \frac{|v|}{m}$\\
+\underline{Denn:} fixiere $r$: Dann produzieren die folgenden Werte den selben Rest $\mod m$\\
+\begin{align*}
+    r \mod m, m + (r \mod m), 2m + (r \mod m), ..., l \cdot m + (r \mod m)\\
+    \text{Insgesamt }\leq \frac{p}{m}, text{eines davon ist genau} \text{mit } l = \lfloor \frac{p}{m}\rfloor
+\end{align*}
+\begin{align*}
+    p(\frac{p}{m} - 1) \leq \frac{|v|}{m} \text{ weil } |V| = p(p -1)
+\end{align*}
+Aus Teil 1 und 2 folgt der Satz ! \hfill $\square$
+
+
+\subsection{Graphen}
+Keine Anschriften zu diesem Thema. Alle Informationen sind auf den Folien vom 19. Mai 2022.
