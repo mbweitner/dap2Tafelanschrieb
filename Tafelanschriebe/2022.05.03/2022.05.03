@@ -79,7 +79,7 @@ $B$
 \newpage
 
 \subsection{Radixsort}
-$\mathcal{S} = [1, ...5]$, $d = 4$, $|\mathcal{S}| = \mathcal{S}^4 = 625$
+$\mathcal{S} = [1, ...5]$, $d = 4$, $|\mathcal{S}| = 5^4 = 625$
 \begin{center}
     \begin{tabular}{|c|c|c|c|c|}
     \hline
