@@ -3,8 +3,10 @@ $\Omega(\log n!)$\\
 
 \begin{align*}
     &n! \sim \sqrt{2\pi n}(\frac{n}{e})^n &&\text{Stirling Formel}\\
-    &\Rightarrow \log n! \sim \log(\sqrt{2\pi n}(\frac{n}{e})^n) && \log (x + y) = \log x + \log y\\
-    &= \underbrace{\frac{1}{2}\log(2\pi)}_{O(1)} + \underbrace{\log n}_{O(\log n)} + n \log n \underbrace{- n}_{O(n)} && \log 1 = 0\\
+    &\Rightarrow \log n! \sim \log(\sqrt{2\pi n}(\frac{n}{e})^n) && \log (xy) = \log x + \log y\\
+    &= {\frac{1}{2}\log(2\pi)} + {\frac{1}{2}\log n} + \log((\frac{n}{e})^n)\\
+    &= {\frac{1}{2}\log(2\pi)} + {\frac{1}{2}\log n} + n \cdot (\log(n) - log(e))\\
+    &= \underbrace{\frac{1}{2}\log(2\pi)}_{O(1)} + \underbrace{\frac{1}{2}\log n}_{O(\log n)} + n \log n \underbrace{- n}_{O(n)} && \log 1 = 0\\
     &\sim n \log n
 \end{align*}
 
